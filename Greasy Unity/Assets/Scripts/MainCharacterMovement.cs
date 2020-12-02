@@ -8,9 +8,6 @@ public class MainCharacterMovement : MonoBehaviour
     [SerializeField]
     Transform transObj;
 
-    [SerializeField]
-    Rigidbody rig;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +21,8 @@ public class MainCharacterMovement : MonoBehaviour
         if (Input.GetAxis("Vertical") > 0)
         
         {
-            transObj.Translate(Vector3.up * Input.GetAxis("Vertical") * 0.30f);
-     
+	transObj.Translate(Vector3.up * Input.GetAxis("Vertical") * 0.2f);
+
         }
     }
 }
