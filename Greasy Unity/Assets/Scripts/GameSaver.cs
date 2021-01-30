@@ -30,6 +30,10 @@ public class GameSaver : MonoBehaviour
     {
         SaveFileSerializer.WriteSaveFile(this.save);
     }
+
+    public int GetCoins(){
+        return save.GetCoins();
+    }
 }
 
 public static class SaveFileSerializer
