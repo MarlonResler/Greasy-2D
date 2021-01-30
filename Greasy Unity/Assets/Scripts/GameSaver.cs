@@ -72,7 +72,7 @@ public static class SaveFileSerializer
         {
             sw =
                 new StreamWriter(File
-                        .Open(FILE_PATH, System.IO.FileMode.Append));
+                        .Open(FILE_PATH, System.IO.FileMode.Create));
         }
         catch (System.Exception e)
         {
