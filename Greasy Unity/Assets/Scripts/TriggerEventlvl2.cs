@@ -19,6 +19,7 @@ public class TriggerEventlvl2 : MonoBehaviour
         if (gameSaver != null)
         {
             gameSaver.addCoins(gameHandler.coins);
+            gameSaver.WriteSaveFile();
         }
         else
         {
