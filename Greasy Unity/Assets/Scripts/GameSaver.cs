@@ -111,9 +111,10 @@ public class SaveFile
         this.skins = new Dictionary<string, bool>();
         skins.Add("Black", false);
         skins.Add("Bacon", false);
-        skins.Add("Merkel", false);
+        skins.Add("Guy", false);
         skins.Add("Dog", false);
         skins.Add("Mario", false);
+        skins.Add("Cat", false);
 
         this.coins = 0;
     }
