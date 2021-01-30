@@ -30,7 +30,13 @@ public static class SaveFileSerializer{
         {
             StreamReader sr = new StreamReader(File.Open(SaveFileSerializer.FILE_PATH, System.IO.FileMode.OpenOrCreate, FileAccess.Read));
             SaveFile save = JsonUtility.FromJson<SaveFile>(sr.ReadToEnd());
-            Debug.Log("Successfully opened Save File");
+            if (save != null)
+            {
+                Debug.Log("Successfully opened Save File");
+            } else {
+                Debug.Log("Got empty json String. Using empty Save file class");
+                save = new SaveFile();
+            }
             return save;
         }
         catch (System.Exception e)
