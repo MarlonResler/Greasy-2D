@@ -15,6 +15,7 @@ public class GameHandler : MonoBehaviour
     {
         //Load coins from save file
         this.coins = gameSaver.GetCoins();
+        Debug.Log("Loading Coins: " + gameSaver.GetCoins());
     }
 
     // Update is called once per frame

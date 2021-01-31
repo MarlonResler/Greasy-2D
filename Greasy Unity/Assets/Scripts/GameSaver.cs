@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
 using Newtonsoft.Json;
+using UnityEngine;
 
 public class GameSaver : MonoBehaviour
 {
     SaveFile save;
 
-    void Start()
+    //Run before the Start Method of the Coin Loader
+    void Awake()
     {
         save = SaveFileSerializer.OpenSaveFile();
     }
@@ -31,8 +32,16 @@ public class GameSaver : MonoBehaviour
         SaveFileSerializer.WriteSaveFile(this.save);
     }
 
-    public int GetCoins(){
+    public int GetCoins()
+    {
         return save.GetCoins();
+    }
+
+    public bool setActiveSkin(string skin)
+    {
+        bool isSkinActivated = save.setActiveSkin(skin);
+        SaveFileSerializer.WriteSaveFile(this.save);
+        return isSkinActivated;
     }
 }
 
@@ -49,7 +58,8 @@ public static class SaveFileSerializer
                         .Open(SaveFileSerializer.FILE_PATH,
                         System.IO.FileMode.OpenOrCreate,
                         FileAccess.Read));
-            SaveFile save = JsonConvert.DeserializeObject<SaveFile>(sr.ReadToEnd());
+            SaveFile save =
+                JsonConvert.DeserializeObject<SaveFile>(sr.ReadToEnd());
             if (save != null)
             {
                 Debug.Log("Successfully opened Save File");
@@ -87,8 +97,8 @@ public static class SaveFileSerializer
         try
         {
             string json = JsonConvert.SerializeObject(save);
-            Debug.Log(json);
-            sw.Write(json);
+            Debug.Log (json);
+            sw.Write (json);
         }
         catch (System.Exception e)
         {
@@ -103,19 +113,26 @@ public class SaveFile
 {
     [JsonProperty]
     private Dictionary<string, bool> skins;
+
     [JsonProperty]
     private int coins;
+
+    [JsonProperty]
+    private string activeSkin;
 
     public SaveFile()
     {
         this.skins = new Dictionary<string, bool>();
-        skins.Add("Black", false);
+        skins.Add("Black", true);
         skins.Add("Bacon", false);
-        skins.Add("Merkel", false);
+        skins.Add("Guy", false);
         skins.Add("Dog", false);
         skins.Add("Mario", false);
+        skins.Add("Cat", false);
 
         this.coins = 0;
+
+        this.activeSkin = "Black";
     }
 
     public void ActivateSkin(string skin)
@@ -131,5 +148,33 @@ public class SaveFile
     public int GetCoins()
     {
         return this.coins;
+    }
+
+    public bool setActiveSkin(string skin)
+    {
+        Debug.Log("Trying to load skin: " + skin + this.skins[skin]);
+        if (this.skins[skin])
+        {
+            this.activeSkin = skin;
+            Debug.Log("Set active skin to: " + skin);
+            return true;
+        }
+        else if (this.coins > 4)
+        {
+            this.skins[skin] = true;
+            this.activeSkin = skin;
+            this.coins -= 5;
+            Debug
+                .Log("Buy and set active skin to: " +
+                skin +
+                "\nNew coin value: " +
+                this.coins);
+            return true;
+        }
+        else
+        {
+            Debug.LogWarning("Not enough coins");
+            return false;
+        }
     }
 }
