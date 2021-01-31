@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5026117475942486983}
   - component: {fileID: 5026117475942486980}
   - component: {fileID: 5026117475942486976}
+  - component: {fileID: 1864306192}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: CoinUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -115,6 +116,20 @@ MonoBehaviour:
   CoinText: {fileID: 5026117477886187074}
   coins: 0
   gameSaver: {fileID: 0}
+--- !u!114 &1864306192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5026117475942486981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f9e4900c01c9a4ea770256fac5be10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuPref: {fileID: 6322744183780561789, guid: e6073f447cdac9a499c4fb67f4b1f3d5,
+    type: 3}
 --- !u!1 &5026117477886187072
 GameObject:
   m_ObjectHideFlags: 0
