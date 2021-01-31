@@ -6,12 +6,26 @@ using UnityEngine.SceneManagement;
 public class TriggerEventlvl1 : MonoBehaviour
 {
     [SerializeField]
-    GameSaver gameSaver;
     GameHandler gameHandler;
+
+    void Start()
+    {
+        gameHandler = GameObject.Find("Canvas").GetComponent<GameHandler>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        gameSaver.addCoins(gameHandler.coins);
+        GameSaver gameSaver = gameObject.GetComponent<GameSaver>();
+        if (gameSaver != null)
+        {
+            gameSaver.addCoins(gameHandler.coins);
+            gameSaver.WriteSaveFile();
+        }
+        else
+        {
+            Debug.LogError("Cannot find GameSaver Component");
+        }
+
         SceneManager.LoadScene("lvl2");
         Debug.Log("Triggered");
     }

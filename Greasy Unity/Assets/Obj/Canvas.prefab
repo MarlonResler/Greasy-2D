@@ -116,6 +116,12 @@ MonoBehaviour:
   CoinText: {fileID: 5026117477886187074}
   coins: 0
   gameSaver: {fileID: 0}
+  black: {fileID: 2100000, guid: 5136074db4f00f248a5e4f3e20ce737f, type: 2}
+  guy: {fileID: 2100000, guid: 6548394f9623e9048aebe3d8b7175403, type: 2}
+  bacon: {fileID: 2100000, guid: e2bcb54c11241944593d0b3078567cd3, type: 2}
+  mario: {fileID: 2100000, guid: 5a5e5719864e2bf4ba85565f9db003b3, type: 2}
+  dog: {fileID: 2100000, guid: bb32e131f8482484b81515f4a2e9e379, type: 2}
+  cat: {fileID: 2100000, guid: 89b2c467a00718f4e96fc13b0537286f, type: 2}
 --- !u!114 &1864306192
 MonoBehaviour:
   m_ObjectHideFlags: 0

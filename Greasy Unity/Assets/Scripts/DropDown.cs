@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SimonGegnerSchaden : MonoBehaviour
+public class DropDown : MonoBehaviour
 {
+
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("lvl2");
         Debug.Log("Triggered");
     }
 }

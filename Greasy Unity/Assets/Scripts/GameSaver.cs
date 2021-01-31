@@ -43,6 +43,10 @@ public class GameSaver : MonoBehaviour
         SaveFileSerializer.WriteSaveFile(this.save);
         return isSkinActivated;
     }
+
+    public string getActiveSkin(){
+        return save.getActiveSkin();
+    }
 }
 
 public static class SaveFileSerializer
@@ -176,5 +180,9 @@ public class SaveFile
             Debug.LogWarning("Not enough coins");
             return false;
         }
+    }
+
+    public string getActiveSkin(){
+        return this.activeSkin;
     }
 }

@@ -26,7 +26,7 @@ public class TriggerEventlvl2 : MonoBehaviour
             Debug.LogError("Cannot find GameSaver Component");
         }
 
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("end");
         Debug.Log("Triggered");
     }
 }
