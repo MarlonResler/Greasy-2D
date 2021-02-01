@@ -146,7 +146,7 @@ public class SaveFile
 
     public void SetCoins(int coinsReached)
     {
-        this.coins += coinsReached;
+        this.coins = coinsReached;
     }
 
     public int GetCoins()
